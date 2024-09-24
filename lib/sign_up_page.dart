@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:food_app/color/color.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -35,10 +36,13 @@ class _SignUpPageState extends State<SignUpPage> {
                 children: [
                   Text("Emails"),
                   TextFormField(
+                    style: TextStyle(color: Colors.red),
                     controller: emailController,
                     decoration: InputDecoration(
                       hintText: "Enter your Email",
-                      hintStyle: TextStyle(color: Color(0xff0FDA48)),
+                      hintStyle: TextStyle(color: GreenColor),
+                      counterStyle: TextStyle(color: Colors.red),
+                      suffixStyle: TextStyle(color: Colors.red),
 
 
                       enabledBorder: OutlineInputBorder(
