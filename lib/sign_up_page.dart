@@ -14,6 +14,7 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController repeatPasswordController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey();
   bool isObsecure = true;
   bool _isFormValid = false;
@@ -36,7 +37,7 @@ class _SignUpPageState extends State<SignUpPage> {
             children: [
 
               SvgPicture.asset('images/app_logo.svg'),
-              Text("Sing up your account"),
+              Text("Sing up your account",style: myStyle(15, TextColorr,FontWeight.w800),),
 
 
               Form(
@@ -44,7 +45,9 @@ class _SignUpPageState extends State<SignUpPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Email"),
+                    Text("Email",style: myStyle(15, TextColorr,FontWeight.w800),),
+                    SizedBox(height: 10,),
+
                     TextFormField(
                       style: TextStyle(color: GreenColor),
                       controller: emailController,
@@ -88,7 +91,9 @@ class _SignUpPageState extends State<SignUpPage> {
                     SizedBox(
                       height: 30,
                     ),
-                    Text("Password"),
+                    Text("Password",style: myStyle(15, TextColorr,FontWeight.w800),),
+                    SizedBox(height: 10,),
+
                     TextFormField(
 
                       validator: (value) {
@@ -142,235 +147,95 @@ class _SignUpPageState extends State<SignUpPage> {
                       height: 20,
                     ),
 
+                Text("Repeat Password",style: myStyle(15, TextColorr,FontWeight.w800),),
+                SizedBox(height: 10,),
+                TextFormField(
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Please confirm your password";
+                    }
+                    if (value != passwordController.text) {
+                      return "Passwords do not match";
+                    }
+                    return null;
+                  },
+                  obscureText: isObsecure, // Same behavior for visibility toggle
+                  obscuringCharacter: "*",
+                  controller: repeatPasswordController,
+                  decoration: InputDecoration(
+                    fillColor: Color(0xff181E22).withOpacity(0.10),
+                    hintText: "**************",
+                    labelStyle: TextStyle(color: Color(0xff0FDA48)),
+                    hintStyle: TextStyle(color: GreyColor),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide(color: GreyColor)),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide(color: Color(0xff0FDA48))),
+                  ),
+                  onChanged: (value) {
+                    _validateForm();
+                  },
+                ),
+
                   ],
                 ),
               ),
 
-              // Container(
-              //   decoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
-              //   height: 50,
-              //   width: double.infinity,
-              //   child: ElevatedButton(
-              //       onPressed: () {
-              //         if (_formKey.currentState!.validate()) {
-              //           print("Okay");
-              //
-              //         } else {
-              //           print("Something is wrong");
-              //         }
-              //       },
-              //       child: Text("Submit")),
-              // )
-              //
-              // Theme(
-              //   data: ThemeData(
-              //     unselectedWidgetColor: Colors.white, // Set the border color when unchecked
-              //   ),
-              //   child: CheckboxListTile(
-              //     title: Text("Remember Me", style: TextStyle(color: Colors.white)),
-              //     value: _isRememberMeChecked,
-              //     onChanged: (newValue) {
-              //       setState(() {
-              //         _isRememberMeChecked = newValue!;
-              //       });
-              //     },
-              //     controlAffinity: ListTileControlAffinity.leading, // Puts the checkbox before the label
-              //     activeColor: Colors.blue, // Blue fill color when checked
-              //     checkColor: Colors.white, // White check mark color
-              //     side: BorderSide(color: Colors.blue, width: 2), // Blue circle around with white border
-              //     shape: RoundedRectangleBorder(
-              //       borderRadius: BorderRadius.circular(5), // Border radius for checkbox
-              //     ),
-              //   ),
-              // ),
+              SizedBox(height: 10,),
 
 
-              // CheckboxListTile(
-              //   title: Text("Remember Me", style: TextStyle(color: Colors.white)),
-              //   value: _isRememberMeChecked,
-              //   onChanged: (newValue) {
-              //     setState(() {
-              //       _isRememberMeChecked = newValue!;
-              //     });
-              //   },
-              //   controlAffinity: ListTileControlAffinity.leading, // Checkbox before the label
-              //   activeColor: Colors.blue, // Blue fill color when checked
-              //   checkColor: Colors.white, // White check mark color
-              //   side: BorderSide(
-              //     color: _isRememberMeChecked ? Colors.white : Colors.grey, // Inner border: grey before, white after checked
-              //     width: 2,
-              //   ),
-              //   shape: RoundedRectangleBorder(
-              //     borderRadius: BorderRadius.circular(5),
-              //   ),
-              //   // Adding a container around the checkbox to add the outer blue border
-              //   contentPadding: EdgeInsets.zero, // Align the checkbox neatly
-              //   checkboxShape: RoundedRectangleBorder(
-              //     borderRadius: BorderRadius.circular(5),
-              //     side: BorderSide(
-              //       color: _isRememberMeChecked ? Colors.blue : Colors.transparent, // Outer blue border when checked
-              //       width: 3, // Thicker blue border around the white border
-              //     ),
-              //   ),
-              // ),
-
-              // Container(
-              //   decoration: BoxDecoration(
-              //     border: Border.all(
-              //       color: _isRememberMeChecked ? Colors.blue : Colors.transparent, // Outer blue border when checked
-              //       width: 3, // Thickness of the outer blue border
-              //     ),
-              //     borderRadius: BorderRadius.circular(5), // Rounded corners for outer border
-              //   ),
-              //   child: CheckboxListTile(
-              //     title: Text("Remember Me", style: TextStyle(color: Colors.white)),
-              //     value: _isRememberMeChecked,
-              //     onChanged: (newValue) {
-              //       setState(() {
-              //         _isRememberMeChecked = newValue!;
-              //       });
-              //     },
-              //     controlAffinity: ListTileControlAffinity.leading, // Checkbox before the label
-              //     activeColor: Colors.blue, // Blue fill color when checked
-              //     checkColor: Colors.white, // White check mark color
-              //     side: BorderSide(
-              //       color: _isRememberMeChecked ? Colors.white : Colors.grey, // Inner white border after checked, grey before
-              //       width: 2, // Thickness of the inner white/grey border
-              //     ),
-              //     shape: RoundedRectangleBorder(
-              //       borderRadius: BorderRadius.circular(5), // Rounded corners for inner border
-              //     ),
-              //   ),
-              // ),
-              //
 
 
-              // CheckboxListTile(
-              //   title: Text("Remember Me", style: TextStyle(color: Colors.white)),
-              //   value: _isRememberMeChecked,
-              //   onChanged: (newValue) {
-              //     setState(() {
-              //       _isRememberMeChecked = newValue!;
-              //     });
-              //   },
-              //   controlAffinity: ListTileControlAffinity.leading, // Checkbox before the label
-              //   activeColor: Colors.blue, // Blue fill color when checked
-              //   checkColor: Colors.white, // White check mark color
-              //   side: BorderSide(
-              //     color: _isRememberMeChecked ? Colors.white : Colors.grey, // Grey before click, white after
-              //     width: 2,
-              //   ),
-              //   shape: RoundedRectangleBorder(
-              //     borderRadius: BorderRadius.circular(5),
-              //     side: BorderSide(
-              //       color: _isRememberMeChecked ? Colors.blue : Colors.grey, // Blue border with white when checked
-              //       width: 2,
-              //     ),
-              //   ),
-              // ),
-              //
-              // Container(
-              //   decoration: BoxDecoration(
-              //     border: Border.all(
-              //       color: _isRememberMeChecked ? Colors.blue : Colors.transparent, // Outer blue border when checked
-              //       width: 3, // Thickness of the outer blue border
-              //     ),
-              //     borderRadius: BorderRadius.circular(5), // Rounded corners for outer border
-              //   ),
-              //   child: CheckboxListTile(
-              //     title: Text("Remember Me", style: TextStyle(color: Colors.white)),
-              //     value: _isRememberMeChecked,
-              //     onChanged: (newValue) {
-              //       setState(() {
-              //         _isRememberMeChecked = newValue!;
-              //       });
-              //     },
-              //     controlAffinity: ListTileControlAffinity.leading, // Checkbox before the label
-              //     activeColor: Colors.blue, // Blue fill color when checked
-              //     checkColor: Colors.white, // White check mark color
-              //     side: BorderSide(
-              //       color: _isRememberMeChecked ? Colors.white : Colors.grey, // Inner white border when checked, grey before
-              //       width: 2, // Thickness of the inner white/grey border
-              //     ),
-              //     shape: RoundedRectangleBorder(
-              //       borderRadius: BorderRadius.circular(5), // Rounded corners for inner border
-              //     ),
-              //   ),
-              // ),
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: _isRememberMeChecked ? Colors.blue : Colors.transparent, // Outer blue border when checked
-                    width: 3, // Thickness of the outer blue border
-                  ),
-                  borderRadius: BorderRadius.circular(5), // Rounded corners for outer border
-                ),
-                //padding: EdgeInsets.all(1), // Add some padding to make the border fit tightly
-                child: Row(
-                  mainAxisSize: MainAxisSize.min, // Make the row take only as much space as needed
-                  children: [
-                    Checkbox(
-                      value: _isRememberMeChecked,
-                      onChanged: (newValue) {
-                        setState(() {
-                          _isRememberMeChecked = newValue!;
-                        });
-                      },
-                      activeColor: Colors.blue, // Blue fill color when checked
-                      checkColor: Colors.white, // White check mark color
-                      side: BorderSide(
-                        color: _isRememberMeChecked ? Colors.white : Colors.grey, // Inner white border when checked, grey when unchecked
-                        width: 2, // Thickness of the inner white/grey border
+              Row(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: _isRememberMeChecked ? Color(0xff0D5EF9) : Colors.transparent, // Outer blue border when checked
+                        width: 2, // Thickness of the outer blue border
+                      ),
+                      borderRadius: BorderRadius.circular(6), // Rounded corners for outer border
+                    ),
+                    child: SizedBox(
+                      width: 31, // Set exact width to fit the checkbox tightly
+                      height: 31, // Set exact height to fit the checkbox tightly
+                      child: Transform.scale(
+                        scale: 1.5,
+                        child: Checkbox(
+
+                          value: _isRememberMeChecked,
+                          onChanged: (newValue) {
+                            setState(() {
+                              _isRememberMeChecked = newValue!;
+                            });
+                          },
+                          activeColor: Color(0xff0D5EF9), // Blue fill color when checked
+                          checkColor: Colors.white,
+                          side: BorderSide(
+                            color: _isRememberMeChecked ? Colors.white : Colors.grey, // Inner white border when checked, grey when unchecked
+                            width: 2, // Thickness of the inner white/grey border
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(3), // Apply the border radius here
+                          ),
+                          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap, // Reduces padding around the checkbox
+                        ),
                       ),
                     ),
-                    SizedBox(width: 8), // Spacing between checkbox and text
-                    Text("Remember Me", style: TextStyle(color: Colors.white)), // Text label
-                  ],
-                ),
+                  ),
+
+                  SizedBox(width: 8), // Spacing between checkbox and text
+                  Text("Remember Me", style: TextStyle(color: Colors.black)),
+                ],
               ),
+              SizedBox(height: 10,),
 
 
-              Container(
-                decoration: BoxDecoration(
-
-                  border: Border.all(
-                    color: _isRememberMeChecked ? Colors.blue : Colors.transparent, // Outer blue border when checked
-                    width: 3, // Thickness of the outer blue border
-                  ),
-                  borderRadius: BorderRadius.circular(5), // Rounded corners for outer border
-                ),
-                child: CheckboxListTile(
-                  title: Text("Remember Me", style: TextStyle(color: Colors.white)),
-                  value: _isRememberMeChecked,
-                  onChanged: (newValue) {
-                    setState(() {
-                      _isRememberMeChecked = newValue!;
-                    });
-                  },
-                  controlAffinity: ListTileControlAffinity.leading, // Checkbox before the label
-                  activeColor: Colors.blue, // Blue fill color when checked
-                  checkColor: Colors.white, // White check mark color
-                  side: BorderSide(
-                    color: _isRememberMeChecked ? Colors.white : Colors.grey, // Inner white border when checked, grey before
-                    width: 2, // Thickness of the inner white/grey border
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5), // Rounded corners for inner border
-                  ),
-                ),
-              ),
 
 
-              // CheckboxListTile(
-        //         title: Text("Remember Me", style: TextStyle(color: Colors.black)),
-        //         value: _isRememberMeChecked,
-        //         onChanged: (newValue) {
-        //           setState(() {
-        //             _isRememberMeChecked = newValue!;
-        //           });
-        //         },
-        //         controlAffinity: ListTileControlAffinity.leading, // Puts the checkbox before the label
-        //       ),
+
               Container(
                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
                 height: 50,
@@ -383,11 +248,69 @@ class _SignUpPageState extends State<SignUpPage> {
                   }
                       : null, // If form is invalid, button is not clickable
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: _isFormValid ? Color(0xff0D5EF9) : Color(0xff0D5EF9).withOpacity(0.1), // Dark blue for valid, light blue for invalid
+                    backgroundColor: _isFormValid ? Color(0xff0D5EF9) : Color(0xff0D5EF9).withOpacity(0.5),
+                    disabledBackgroundColor: Color(0xff0D5EF9).withOpacity(0.3),// Dark blue for valid, light blue for invalid
                   ),
-                  child: Text("Submit"),
+                  child: Text("Next",style: myStyle(15, WhiteColor,FontWeight.w300),),
                 ),
               ),
+              SizedBox(height: 30,),
+              Row(
+                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: GreyColor
+                      ),
+                      borderRadius: BorderRadius.circular(20)
+
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 30),
+                      child: Row(
+                        children: [
+                          SvgPicture.asset('images/facebook.svg'),
+                          SizedBox(width: 10,),
+
+                          Text("Facebook", style: myStyle(15, TextColorr, FontWeight.w600),),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Container(
+
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                            color: GreyColor
+                        ),
+                        borderRadius: BorderRadius.circular(20)
+
+                    ),
+
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 30),
+                      child: Row(
+                        children: [
+                          SvgPicture.asset('images/google.svg'),
+                          SizedBox(width: 10,),
+
+                          Text("Google", style: myStyle(15, TextColorr, FontWeight.w600),),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(height: 10,),
+              
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Already have an account?"),
+                  Text("Sign in")
+                ],
+              )
             ],
           ),
 
