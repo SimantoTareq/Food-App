@@ -19,32 +19,35 @@ class _IntroductionPageState extends State<IntroductionPage> {
           Positioned.fill(
 
 
-            child: SvgPicture.asset(
-              'images/Introduction.svg', // Update this path to your asset image path
-              fit: BoxFit.cover, // Ensures the image fills the screen
+            child:
+            SvgPicture.asset(
+              'images/Introduction.svg',
+              fit: BoxFit.fill, // Update this path to your asset image path
+
             ),
           ),
 
-          // Brand and description text
-          Center(
+          Positioned(
+            bottom: 120, // Adjust this to control the distance from the bottom
+            left: 20,
+            right: 20,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   "Brand",
                   style: TextStyle(
-                    fontSize: 35,
+                    fontSize: 30,
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white, // Text color set to white for visibility
                   ),
                 ),
                 SizedBox(height: 10),
                 Text(
                   "Savor the convenience of restaurant-quality meals, delivered promptly.",
-                  textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white, // Text color set to white for visibility
+                    fontSize: 16,
+                    color: Colors.white70,
                   ),
                 ),
               ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_app/introduction_page.dart';
 import 'package:food_app/sign_in_page.dart';
 import 'package:food_app/sign_up_page.dart';
+import 'package:food_app/splash_screen.dart';
 //Owner : Tareq
 //Collaborator: Siam
 void main() {
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: IntroductionPage(),
+      home: SplashScreen(),
     );
   }
 }
