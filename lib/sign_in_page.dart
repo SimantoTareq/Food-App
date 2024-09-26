@@ -1,17 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:food_app/color/color.dart';
-import 'package:sizer/sizer.dart';
+import 'package:flutter_svg/svg.dart';
 
-class SignUpPage extends StatefulWidget {
-  const SignUpPage({super.key});
+import 'color/color.dart';
+
+class SignInPage extends StatefulWidget {
+  const SignInPage({super.key});
 
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  State<SignInPage> createState() => _SignInPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _SignInPageState extends State<SignInPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController repeatPasswordController = TextEditingController();
@@ -20,13 +20,8 @@ class _SignUpPageState extends State<SignUpPage> {
   bool _isFormValid = false;
   bool _isRememberMeChecked = false;
 
-
-
-
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -38,7 +33,7 @@ class _SignUpPageState extends State<SignUpPage> {
               children: [
         
                 SvgPicture.asset('images/app_logo.svg'),
-                Text("Sing up your account",style: myStyle(15, TextColorr,FontWeight.w800),),
+                Text("Sing in your account",style: myStyle(15, TextColorr,FontWeight.w800),),
         
         
                 Form(
@@ -148,37 +143,6 @@ class _SignUpPageState extends State<SignUpPage> {
                         height: 20,
                       ),
         
-                  Text("Repeat Password",style: myStyle(15, TextColorr,FontWeight.w800),),
-                  SizedBox(height: 10,),
-                  TextFormField(
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Please confirm your password";
-                      }
-                      if (value != passwordController.text) {
-                        return "Passwords do not match";
-                      }
-                      return null;
-                    },
-                    obscureText: isObsecure, // Same behavior for visibility toggle
-                    obscuringCharacter: "*",
-                    controller: repeatPasswordController,
-                    decoration: InputDecoration(
-                      fillColor: Color(0xff181E22).withOpacity(0.10),
-                      hintText: "**************",
-                      labelStyle: TextStyle(color: Color(0xff0FDA48)),
-                      hintStyle: TextStyle(color: GreyColor),
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(color: GreyColor)),
-                      focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(color: Color(0xff0FDA48))),
-                    ),
-                    onChanged: (value) {
-                      _validateForm();
-                    },
-                  ),
         
                     ],
                   ),
@@ -189,48 +153,48 @@ class _SignUpPageState extends State<SignUpPage> {
         
         
         
-                // Row(
-                //   children: [
-                //     Container(
-                //       decoration: BoxDecoration(
-                //         border: Border.all(
-                //           color: _isRememberMeChecked ? Color(0xff0D5EF9) : Colors.transparent, // Outer blue border when checked
-                //           width: 2, // Thickness of the outer blue border
-                //         ),
-                //         borderRadius: BorderRadius.circular(6), // Rounded corners for outer border
-                //       ),
-                //       child: SizedBox(
-                //         width: 31, // Set exact width to fit the checkbox tightly
-                //         height: 31, // Set exact height to fit the checkbox tightly
-                //         child: Transform.scale(
-                //           scale: 1.5,
-                //           child: Checkbox(
-                //
-                //             value: _isRememberMeChecked,
-                //             onChanged: (newValue) {
-                //               setState(() {
-                //                 _isRememberMeChecked = newValue!;
-                //               });
-                //             },
-                //             activeColor: Color(0xff0D5EF9), // Blue fill color when checked
-                //             checkColor: Colors.white,
-                //             side: BorderSide(
-                //               color: _isRememberMeChecked ? Colors.white : Colors.grey, // Inner white border when checked, grey when unchecked
-                //               width: 2, // Thickness of the inner white/grey border
-                //             ),
-                //             shape: RoundedRectangleBorder(
-                //               borderRadius: BorderRadius.circular(3), // Apply the border radius here
-                //             ),
-                //             materialTapTargetSize: MaterialTapTargetSize.shrinkWrap, // Reduces padding around the checkbox
-                //           ),
-                //         ),
-                //       ),
-                //     ),
-                //
-                //     SizedBox(width: 8), // Spacing between checkbox and text
-                //     Text("Remember Me", style: TextStyle(color: Colors.black)),
-                //   ],
-                // ),
+                Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: _isRememberMeChecked ? Color(0xff0D5EF9) : Colors.transparent, // Outer blue border when checked
+                          width: 2, // Thickness of the outer blue border
+                        ),
+                        borderRadius: BorderRadius.circular(6), // Rounded corners for outer border
+                      ),
+                      child: SizedBox(
+                        width: 31, // Set exact width to fit the checkbox tightly
+                        height: 31, // Set exact height to fit the checkbox tightly
+                        child: Transform.scale(
+                          scale: 1.5,
+                          child: Checkbox(
+        
+                            value: _isRememberMeChecked,
+                            onChanged: (newValue) {
+                              setState(() {
+                                _isRememberMeChecked = newValue!;
+                              });
+                            },
+                            activeColor: Color(0xff0D5EF9), // Blue fill color when checked
+                            checkColor: Colors.white,
+                            side: BorderSide(
+                              color: _isRememberMeChecked ? Colors.white : Colors.grey, // Inner white border when checked, grey when unchecked
+                              width: 2, // Thickness of the inner white/grey border
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(3), // Apply the border radius here
+                            ),
+                            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap, // Reduces padding around the checkbox
+                          ),
+                        ),
+                      ),
+                    ),
+        
+                    SizedBox(width: 8), // Spacing between checkbox and text
+                    Text("Remember Me", style: TextStyle(color: Colors.black)),
+                  ],
+                ),
                 SizedBox(height: 10,),
         
         
@@ -252,19 +216,38 @@ class _SignUpPageState extends State<SignUpPage> {
                       backgroundColor: _isFormValid ? Color(0xff0D5EF9) : Color(0xff0D5EF9).withOpacity(0.5),
                       disabledBackgroundColor: Color(0xff0D5EF9).withOpacity(0.3),// Dark blue for valid, light blue for invalid
                     ),
-                    child: Text("Next",style: myStyle(15, WhiteColor,FontWeight.w300),),
+                    child: Text("SIGN IN",style: myStyle(15, WhiteColor,FontWeight.w300),),
                   ),
+                ),
+                SizedBox(height: 10,),
+                Text("Forgot password?",style: myStyle(15, BlueColor),),
+                SizedBox(height: 25,),
+        
+        
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    const Expanded(child: Divider()),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      child: Text(
+                        "Or Continue With",
+                        style: Theme.of(context).textTheme.labelMedium,
+                      ),
+                    ),
+                    const Expanded(child: Divider()),
+                  ],
                 ),
                 SizedBox(height: 30,),
                 Row(
-                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        border: Border.all(
-                          color: GreyColor
-                        ),
-                        borderRadius: BorderRadius.circular(20)
+                          border: Border.all(
+                              color: GreyColor
+                          ),
+                          borderRadius: BorderRadius.circular(20)
         
                       ),
                       child: Padding(
@@ -303,13 +286,13 @@ class _SignUpPageState extends State<SignUpPage> {
                     )
                   ],
                 ),
-                SizedBox(height: 10,),
-                
+                SizedBox(height: 20,),
+        
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Already have an account?"),
-                    Text("Sign in")
+                    Text("Don't have an account?",style: myStyle(14, TextColorr),),
+                    Text("Sign up",style: myStyle(15, BlueColor),)
                   ],
                 )
               ],
