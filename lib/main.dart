@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/introduction_page.dart';
+import 'package:food_app/notification.dart';
+import 'package:food_app/order_page.dart';
 import 'package:food_app/sign_in_page.dart';
 import 'package:food_app/sign_up_page.dart';
 import 'package:food_app/splash_screen.dart';
@@ -37,7 +39,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SplashScreen(),
+      home: NotificationPage(),
     );
   }
 }
