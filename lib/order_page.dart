@@ -65,6 +65,7 @@ class _OrderPageState extends State<OrderPage> {
                               child: Icon(Icons.keyboard_arrow_left, color: BlackColor,)),
                         ),
                       ),
+                      SizedBox(width: 10,),
                       Text("Order details",style: myStyle(18, BlackColor,FontWeight.w600),)
                     ],
                   ),

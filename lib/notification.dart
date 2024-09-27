@@ -65,6 +65,7 @@ class _NotificationPageState extends State<NotificationPage> {
                               child: Icon(Icons.keyboard_arrow_left, color: BlackColor,)),
                         ),
                       ),
+                      SizedBox(width: 10,),
                       Text("Notifications",style: myStyle(18, BlackColor,FontWeight.w600),)
                     ],
                   ),
@@ -122,7 +123,7 @@ class _NotificationPageState extends State<NotificationPage> {
 
                             children: [
                               Text("Your order is completed! ",style: myStyle(14, BlackColor,FontWeight.w600)),
-                              Text("20:00",style: myStyle(12, BlackColor,FontWeight.w300),)
+                              Text("16:00",style: myStyle(12, BlackColor,FontWeight.w300),)
                             ],
                           ),
                         ],
@@ -217,8 +218,8 @@ class _NotificationPageState extends State<NotificationPage> {
                             crossAxisAlignment: CrossAxisAlignment.start,
 
                             children: [
-                              Text("Pizza pepperoni",style: myStyle(14, BlackColor,FontWeight.w600)),
-                              Text("11.90",style: myStyle(12, BlackColor,FontWeight.w300),)
+                              Text("Your received 200 points",style: myStyle(14, BlackColor,FontWeight.w600)),
+                              Text("11.00",style: myStyle(12, BlackColor,FontWeight.w300),)
                             ],
                           ),
                         ],
