@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/homePage.dart';
 import 'package:food_app/sign_up_page.dart';
 //Owner : Tareq
 //Collaborator: Siam
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SignUpPage(),
+      home: Homepage(),
     );
   }
 }
