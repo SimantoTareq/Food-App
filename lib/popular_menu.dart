@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app/item_food_card.dart';
 
-class Homepage extends StatefulWidget {
-  const Homepage({super.key});
+class PopularMenuHomepage extends StatefulWidget {
+  const PopularMenuHomepage({super.key});
 
   @override
-  State<Homepage> createState() => _HomepageState();
+  State<PopularMenuHomepage> createState() => _PopularMenuHomepageState();
 }
 
-class _HomepageState extends State<Homepage> {
+class _PopularMenuHomepageState extends State<PopularMenuHomepage> {
 
   final textController = TextEditingController();
 
