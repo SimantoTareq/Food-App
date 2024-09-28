@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+//<<<<<<< HEAD
+import 'package:food_app/popular_menu.dart';
+//=======
 import 'package:food_app/introduction_page.dart';
 import 'package:food_app/notification.dart';
 import 'package:food_app/order_page.dart';
 import 'package:food_app/sign_in_page.dart';
+//>>>>>>> 1deb57000d18d58677f4a697577c1c597cc63237
 import 'package:food_app/sign_up_page.dart';
 import 'package:food_app/splash_screen.dart';
 //Owner : Tareq
@@ -39,7 +43,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+//<<<<<<< HEAD
+      //home: PopularMenuHomepage(),
+//=======
       home: NotificationPage(),
+//>>>>>>> 1deb57000d18d58677f4a697577c1c597cc63237
     );
   }
 }
