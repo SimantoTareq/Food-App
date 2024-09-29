@@ -7,6 +7,7 @@ class ItemFoodCard extends StatefulWidget {
   String? asset;
   String? price;
   String? addToCartLabel;
+  Function? onClickAction;
 
   // Function? onClickAction;
   ItemFoodCard({
@@ -16,6 +17,7 @@ class ItemFoodCard extends StatefulWidget {
     this.asset,
     this.price,
     this.addToCartLabel,
+    this.onClickAction,
   }) : super(key: key);
 
   @override
@@ -27,85 +29,92 @@ class _ItemFoodCardState extends State<ItemFoodCard> {
   Widget build(BuildContext context) {
     return Expanded(
       child: Card(
-        child: Column(
-          children: [
-            Badge(
-              child: Image.asset(
-                // width: MediaQuery.of(context).size.width * .3,
-                // height: MediaQuery.of(context).size.height * .3,
-                widget.asset ?? 'Image not found',
-
-              ),
-
-            ),
-            // const SizedBox(
-            //   height: 4,
-            // ),
-
-            Center(
-              child: Text(widget.label ?? "",
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold
-
+        child: InkWell(
+          onTap: (){
+            if(widget.onClickAction!=null) {
+              widget.onClickAction!();
+            }
+          },
+          child: Column(
+            children: [
+              Badge(
+                child: Image.asset(
+                  // width: MediaQuery.of(context).size.width * .3,
+                  // height: MediaQuery.of(context).size.height * .3,
+                  widget.asset ?? 'Image not found',
+          
                 ),
-                //overflow: TextOverflow.ellipsis,
-             ),
-            ),
-
-            Center(
-              child: Text(widget.subTitle ?? "",
-                style: TextStyle(
-                  color: Color(0xFF94979F)
-                ),
-                //overflow: TextOverflow.ellipsis,
+          
               ),
-            ),
-
-            Center(
-              child: Text(widget.price ?? "",
-                style: const TextStyle(
+              // const SizedBox(
+              //   height: 4,
+              // ),
+          
+              Center(
+                child: Text(widget.label ?? "",
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold
-
-                ),
-                //overflow: TextOverflow.ellipsis,
-              ),
-            ),
-
-            Container(
-              color: Color(0xFF0D5EF9),
-              height: 50,
-              // decoration: BoxDecoration(
-              //   borderRadius:
-              //
-              // ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.shopping_basket_outlined,
-                  color: Colors.white,
+          
                   ),
-                  SizedBox(width: 8,),
-                  Text(widget.addToCartLabel ?? "",
+                  //overflow: TextOverflow.ellipsis,
+               ),
+              ),
+          
+              Center(
+                child: Text(widget.subTitle ?? "",
                   style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16
-
+                    color: Color(0xFF94979F)
                   ),
-                  )
-                ],
-
-
+                  //overflow: TextOverflow.ellipsis,
+                ),
               ),
-            )
-
-
-
-
-          ],
-
-
+          
+              Center(
+                child: Text(widget.price ?? "",
+                  style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold
+          
+                  ),
+                  //overflow: TextOverflow.ellipsis,
+                ),
+              ),
+          
+              Container(
+                color: Color(0xFF0D5EF9),
+                height: 50,
+                // decoration: BoxDecoration(
+                //   borderRadius:
+                //
+                // ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.shopping_basket_outlined,
+                    color: Colors.white,
+                    ),
+                    SizedBox(width: 8,),
+                    Text(widget.addToCartLabel ?? "",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16
+          
+                    ),
+                    )
+                  ],
+          
+          
+                ),
+              )
+          
+          
+          
+          
+            ],
+          
+          
+          ),
         ),
 
 
