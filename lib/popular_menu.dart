@@ -49,6 +49,12 @@ class _PopularMenuHomepageState extends State<PopularMenuHomepage> {
                   subTitle: 'Grill Bar',
                   price: '\$12.45',
                   addToCartLabel: 'Add to cart',
+                  onClickAction: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
+                    ),
+                  },
                 ),
 
               ],
@@ -62,6 +68,12 @@ class _PopularMenuHomepageState extends State<PopularMenuHomepage> {
                   subTitle: 'Irish Pub',
                   price: '\$5.99',
                   addToCartLabel: 'Add to cart',
+                  onClickAction: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
+                    ),
+                  },
 
 
                 ),
@@ -71,6 +83,12 @@ class _PopularMenuHomepageState extends State<PopularMenuHomepage> {
                   subTitle: 'Irish Pub',
                   price: '\$35.99',
                   addToCartLabel: 'Add to cart',
+                  onClickAction: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
+                    ),
+                  },
 
                 ),
 
