@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:food_app/category.dart';
 import 'package:food_app/item_food_card.dart';
+
+import 'widgets.dart';
 
 class PopularMenuHomepage extends StatefulWidget {
   const PopularMenuHomepage({super.key});
@@ -11,7 +14,7 @@ class PopularMenuHomepage extends StatefulWidget {
 
 class _PopularMenuHomepageState extends State<PopularMenuHomepage> {
 
-  final textController = TextEditingController();
+ // final textController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +36,12 @@ class _PopularMenuHomepageState extends State<PopularMenuHomepage> {
                   subTitle: 'Steak House',
                   price: '\$5.99',
                   addToCartLabel: 'Add to cart',
+                  onClickAction: () => {
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
+                  ),
+                  },
                 ),
                 ItemFoodCard(
                   asset: 'images/pizza.png',
@@ -40,6 +49,12 @@ class _PopularMenuHomepageState extends State<PopularMenuHomepage> {
                   subTitle: 'Grill Bar',
                   price: '\$12.45',
                   addToCartLabel: 'Add to cart',
+                  onClickAction: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
+                    ),
+                  },
                 ),
 
               ],
@@ -53,14 +68,27 @@ class _PopularMenuHomepageState extends State<PopularMenuHomepage> {
                   subTitle: 'Irish Pub',
                   price: '\$5.99',
                   addToCartLabel: 'Add to cart',
+                  onClickAction: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
+                    ),
+                  },
+
 
                 ),
                 ItemFoodCard(
                   asset: 'images/cesarsalad.png',
-                  label: 'Chicken Burger',
+                  label: 'Cesar Salad',
                   subTitle: 'Irish Pub',
                   price: '\$35.99',
                   addToCartLabel: 'Add to cart',
+                  onClickAction: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
+                    ),
+                  },
 
                 ),
 
@@ -79,69 +107,9 @@ class _PopularMenuHomepageState extends State<PopularMenuHomepage> {
   }
 
 
-  Widget CustomAppBar(){
-   return const Padding(
-     padding: EdgeInsets.all(8.0),
-     child: Row(
-
-       children: [
-         Icon(Icons.arrow_back_ios),
-         SizedBox(width: 40,),
-         Text('Popular Menu',
-             style: TextStyle(
-                 fontWeight: FontWeight.bold,
-                 fontSize: 20,
-             )
-         ),
 
 
 
-       ],
-
-     ),
-   );
-
-  }
-
-  Widget CustomSearch(){
-    return Row(
-      children: [
-        const Icon(CupertinoIcons.search),
-        Expanded(child: HomePageCustomTextField(textController)),
-        const Icon(CupertinoIcons.bars),
-
-      ],
-
-    );
-
-
-  }
-
-  Widget HomePageCustomTextField(TextEditingController controller, ){
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: TextField(
-        controller: controller,
-
-        decoration: InputDecoration(
-          hintText: 'Search',
-
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30),
-            borderSide: BorderSide.none
-
-
-          ),
-
-        ),
-
-
-      ),
-    );
-
-
-
-  }
 
  // Widget ItemImage() {
  //    return Padding(
