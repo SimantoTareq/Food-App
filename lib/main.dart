@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/payment_method.dart';
 //<<<<<<< HEAD
 import 'package:food_app/popular_menu.dart';
 //=======
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
 //<<<<<<< HEAD
-      home: PopularMenuHomepage(),
+      home: PaymentMethod(),
 //=======
     //  home: NotificationPage(),
 //>>>>>>> 1deb57000d18d58677f4a697577c1c597cc63237

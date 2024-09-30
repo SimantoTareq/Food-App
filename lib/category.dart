@@ -20,7 +20,7 @@ class _CategoryState extends State<Category> {
           automaticallyImplyLeading: false,
           flexibleSpace: Padding(
             padding: const EdgeInsets.fromLTRB(35.0,20,8,8),
-            child: CustomAppBar(),
+            child: CustomAppBar('Popular Menu'),
           ),
 
         ),
@@ -29,7 +29,7 @@ class _CategoryState extends State<Category> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(35.0,10,8,8),
+              padding: const EdgeInsets.fromLTRB(35.0,10,45.0,8),
               child: CustomSearch(),
             ),
 
