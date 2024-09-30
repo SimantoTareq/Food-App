@@ -66,14 +66,22 @@ Widget HomePageCustomTextField(TextEditingController controller, ){
 
 
 }
-Widget CustomTextButton(String text){
+Widget CustomTextButton({
+  required String text,
+  required bool isClicked, // Pass the clicked state from a StatefulWidget
+  required VoidCallback onPressed, // Pass the onPressed action
+}){
   return TextButton(
-    onPressed: (){},
+    onPressed: onPressed,
+
     style: TextButton.styleFrom(
+      backgroundColor: isClicked ? Color(0xFF0D5EF9) : Colors.white,
+      foregroundColor: isClicked ? Colors.white : Color(0xFF0D5EF9),
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30),
           side: const BorderSide(
-              color: Color(0xFF0D5EF9)
+            //  color: isClicked ? Color(0xFF0D5EF9) : Color(0xFF0D5EF9)
+            color: Color(0xFF0D5EF9)
           )
       ),
 
@@ -132,6 +140,17 @@ Widget CustomPaymentTextField({
       ),
     ),
   );
+}
+
+Widget CustomPaymentListTile(String leading, String? trailing){
+  return ListTile(
+    leading: Text(leading,style: TextStyle(fontWeight: FontWeight.w500,fontSize: 14,
+        color: Color(0x99181E22)),),
+    trailing: Text(trailing ?? "N/A",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 14,
+        color: Color(0xFF181E22))),
+
+  );
+
 }
 
 

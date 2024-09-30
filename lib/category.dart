@@ -11,6 +11,7 @@ class Category extends StatefulWidget {
 }
 
 class _CategoryState extends State<Category> {
+  bool _isClicked = false;
   @override
   Widget build(BuildContext context) {
     return  SafeArea(
@@ -54,11 +55,29 @@ class _CategoryState extends State<Category> {
               child: Row(
                children: [
 
-                 CustomTextButton('Asian'),
+                 CustomTextButton(
+                     text: 'Asian',
+                     isClicked: _isClicked,
+                     onPressed: () {
+                       // setState(() {
+                       //
+                       //  // _isClicked = !_isClicked;
+                       // });
+
+                     }
+                 ),
                  SizedBox(width: 10,),
-                 CustomTextButton('European'),
+                 CustomTextButton(
+                     text: 'European',
+                     isClicked: _isClicked,
+                     onPressed: () {  }
+                 ),
                  SizedBox(width: 10,),
-                 CustomTextButton('Soup'),
+                 CustomTextButton(
+                     text: 'Soup',
+                     isClicked: _isClicked,
+                     onPressed: () {  }
+                 ),
                ],
 
 
@@ -83,13 +102,29 @@ class _CategoryState extends State<Category> {
               child: Row(
                 children: [
 
-                  CustomTextButton('10 min'),
+                  CustomTextButton(
+                      text: '10 min',
+                      isClicked: _isClicked,
+                      onPressed: () {  }
+                  ),
                   SizedBox(width: 10,),
-                  CustomTextButton('15 min'),
+                  CustomTextButton(
+                      text: '15 min',
+                      isClicked: _isClicked,
+                      onPressed: () {  }
+                  ),
                   SizedBox(width: 10,),
-                  CustomTextButton('25 min'),
+                  CustomTextButton(
+                      text: '25 min',
+                      isClicked: _isClicked,
+                      onPressed: () {  }
+                  ),
                   SizedBox(width: 10,),
-                  CustomTextButton('45 min'),
+                  CustomTextButton(
+                      text: '45 min',
+                      isClicked: _isClicked,
+                      onPressed: () {  }
+                  ),
 
                 ],
 
@@ -116,15 +151,35 @@ class _CategoryState extends State<Category> {
                 runSpacing: 10.0,
                 children: [
 
-                  CustomTextButton('Tacos'),
+                  CustomTextButton(
+                      text: 'Tacos',
+                      isClicked: _isClicked,
+                      onPressed: () {  }
+                  ),
                   SizedBox(width: 10,),
-                  CustomTextButton('Pasta'),
+                  CustomTextButton(
+                      text: 'Pasta',
+                      isClicked: _isClicked,
+                      onPressed: () {  }
+                  ),
                   SizedBox(width: 10,),
-                  CustomTextButton('Burgers'),
+                  CustomTextButton(
+                      text: 'Burgers',
+                      isClicked: _isClicked,
+                      onPressed: () {  }
+                  ),
                   SizedBox(width: 10,),
-                  CustomTextButton('Pizza'),
+                  CustomTextButton(
+                      text: 'Pizza',
+                      isClicked: _isClicked,
+                      onPressed: () {  }
+                  ),
                   SizedBox(width: 10,),
-                  CustomTextButton('Appetizers'),
+                  CustomTextButton(
+                      text: 'Appetizers',
+                      isClicked: _isClicked,
+                      onPressed: () {  }
+                  ),
 
                 ],
 
