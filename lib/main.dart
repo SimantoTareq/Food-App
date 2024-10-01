@@ -5,6 +5,8 @@ import 'package:food_app/order_page.dart';
 import 'package:food_app/sign_in_page.dart';
 import 'package:food_app/sign_up_page.dart';
 import 'package:food_app/splash_screen.dart';
+
+import 'deliver_address_page.dart';
 //Owner : Tareq
 //Collaborator: Siam
 void main() {
@@ -39,7 +41,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: NotificationPage(),
+      home: DeliverAddressPage(),
     );
   }
 }
