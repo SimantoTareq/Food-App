@@ -21,78 +21,92 @@ class _PopularMenuHomepageState extends State<PopularMenuHomepage> {
     return  SafeArea(
       child: Scaffold(
         appBar: AppBar(
-        flexibleSpace: CustomAppBar(),
+
+          automaticallyImplyLeading: false,
+          flexibleSpace: Padding(
+            padding: const EdgeInsets.fromLTRB(35.0,20,8,8),
+            child: CustomAppBar('Popular Menu'),
+          ),
 
         ),
 
         body: Column(
           children: [
-            CustomSearch(),
-            Row(
-              children: [
-                ItemFoodCard(
-                   asset: 'images/cheese-burger.png',
-                    label: 'Cheese Burger',
-                  subTitle: 'Steak House',
-                  price: '\$5.99',
-                  addToCartLabel: 'Add to cart',
-                  onClickAction: () => {
-                  Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
-                  ),
-                  },
-                ),
-                ItemFoodCard(
-                  asset: 'images/pizza.png',
-                  label: 'Pizza',
-                  subTitle: 'Grill Bar',
-                  price: '\$12.45',
-                  addToCartLabel: 'Add to cart',
-                  onClickAction: () => {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
-                    ),
-                  },
-                ),
-
-              ],
-
+            Padding(
+              padding: const EdgeInsets.fromLTRB(35.0,10,45.0,8),
+              child: CustomSearch(),
             ),
-            Row(
-              children: [
-                ItemFoodCard(
-                  asset: 'images/chicken-burger.png',
-                  label: 'Chicken Burger',
-                  subTitle: 'Irish Pub',
-                  price: '\$5.99',
-                  addToCartLabel: 'Add to cart',
-                  onClickAction: () => {
+            Padding(
+              padding: const EdgeInsets.fromLTRB(35.0,10,35.0,8),
+              child: Row(
+                children: [
+                  ItemFoodCard(
+                     asset: 'images/cheese-burger.png',
+                      label: 'Cheese Burger',
+                    subTitle: 'Steak House',
+                    price: '\$5.99',
+                    addToCartLabel: 'Add to cart',
+                    onClickAction: () => {
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
+                    context,
+                    MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
                     ),
-                  },
+                    },
+                  ),
+                  ItemFoodCard(
+                    asset: 'images/pizza.png',
+                    label: 'Pizza',
+                    subTitle: 'Grill Bar',
+                    price: '\$12.45',
+                    addToCartLabel: 'Add to cart',
+                    onClickAction: () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
+                      ),
+                    },
+                  ),
+
+                ],
+
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(35.0,10,35.0,8),
+              child: Row(
+                children: [
+                  ItemFoodCard(
+                    asset: 'images/chicken-burger.png',
+                    label: 'Chicken Burger',
+                    subTitle: 'Irish Pub',
+                    price: '\$5.99',
+                    addToCartLabel: 'Add to cart',
+                    onClickAction: () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
+                      ),
+                    },
 
 
-                ),
-                ItemFoodCard(
-                  asset: 'images/cesarsalad.png',
-                  label: 'Cesar Salad',
-                  subTitle: 'Irish Pub',
-                  price: '\$35.99',
-                  addToCartLabel: 'Add to cart',
-                  onClickAction: () => {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
-                    ),
-                  },
+                  ),
+                  ItemFoodCard(
+                    asset: 'images/cesarsalad.png',
+                    label: 'Cesar Salad',
+                    subTitle: 'Irish Pub',
+                    price: '\$35.99',
+                    addToCartLabel: 'Add to cart',
+                    onClickAction: () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
+                      ),
+                    },
 
-                ),
+                  ),
 
-              ],
+                ],
+              ),
             )
 
 
