@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:food_app/category.dart';
 import 'package:food_app/item_food_card.dart';
 
+import 'bottom_nav.dart';
 import 'widgets.dart';
 
 class PopularMenuHomepage extends StatefulWidget {
@@ -15,6 +16,28 @@ class PopularMenuHomepage extends StatefulWidget {
 class _PopularMenuHomepageState extends State<PopularMenuHomepage> {
 
  // final textController = TextEditingController();
+  int _currentIndex = 0;
+
+  void _onNavItemTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+    // Here you can handle navigation based on the index
+    switch (index) {
+      case 0:
+      // Navigate to home
+        break;
+      case 1:
+      // Navigate to search
+        break;
+      case 2:
+      // Navigate to cart
+        break;
+      case 3:
+      // Navigate to profile
+        break;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,90 +53,103 @@ class _PopularMenuHomepageState extends State<PopularMenuHomepage> {
 
         ),
 
-        body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(35.0,10,45.0,8),
-              child: CustomSearch(),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(35.0,10,35.0,8),
-              child: Row(
-                children: [
-                  ItemFoodCard(
-                     asset: 'images/cheese-burger.png',
-                      label: 'Cheese Burger',
-                    subTitle: 'Steak House',
-                    price: '\$5.99',
-                    addToCartLabel: 'Add to cart',
-                    onClickAction: () => {
-                    Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(35.0,10,45.0,8),
+                child: CustomSearch(),
+              ),
+              SizedBox(height: 40,),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(35.0,80,35.0,8),
+                child: Row(
+                  children: [
+                    ItemFoodCard(
+                       asset: 'images/cheese-burger.png',
+                        label: 'Cheese Burger',
+                      subTitle: 'Steak House',
+                      price: '\$5.99',
+                      addToCartLabel: 'Add to cart',
+                      onClickAction: () => {
+                      Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
+                      ),
+                      },
                     ),
-                    },
-                  ),
-                  ItemFoodCard(
-                    asset: 'images/pizza.png',
-                    label: 'Pizza',
-                    subTitle: 'Grill Bar',
-                    price: '\$12.45',
-                    addToCartLabel: 'Add to cart',
-                    onClickAction: () => {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
-                      ),
-                    },
-                  ),
-
-                ],
-
+                    ItemFoodCard(
+                      asset: 'images/pizza.png',
+                      label: 'Pizza',
+                      subTitle: 'Grill Bar',
+                      price: '\$12.45',
+                      addToCartLabel: 'Add to cart',
+                      onClickAction: () => {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
+                        ),
+                      },
+                    ),
+          
+                  ],
+          
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(35.0,10,35.0,8),
-              child: Row(
-                children: [
-                  ItemFoodCard(
-                    asset: 'images/chicken-burger.png',
-                    label: 'Chicken Burger',
-                    subTitle: 'Irish Pub',
-                    price: '\$5.99',
-                    addToCartLabel: 'Add to cart',
-                    onClickAction: () => {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
-                      ),
-                    },
-
-
-                  ),
-                  ItemFoodCard(
-                    asset: 'images/cesarsalad.png',
-                    label: 'Cesar Salad',
-                    subTitle: 'Irish Pub',
-                    price: '\$35.99',
-                    addToCartLabel: 'Add to cart',
-                    onClickAction: () => {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
-                      ),
-                    },
-
-                  ),
-
-                ],
+          
+              SizedBox(height: 40,),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(35.0,80,35.0,8),
+                child: Row(
+                  children: [
+                    ItemFoodCard(
+                      asset: 'images/chicken-burger.png',
+                      label: 'Chicken Burger',
+                      subTitle: 'Irish Pub',
+                      price: '\$5.99',
+                      addToCartLabel: 'Add to cart',
+                      onClickAction: () => {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
+                        ),
+                      },
+          
+          
+                    ),
+                    ItemFoodCard(
+                      asset: 'images/cesarsalad.png',
+                      label: 'Cesar Salad',
+                      subTitle: 'Irish Pub',
+                      price: '\$35.99',
+                      addToCartLabel: 'Add to cart',
+                      onClickAction: () => {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
+                        ),
+                      },
+          
+                    ),
+          
+                  ],
+                ),
               ),
-            )
 
 
+          
+          
+          
+            ],
+          
+          
+          ),
 
-          ],
+        ),
 
-
+        bottomNavigationBar: CustomBottomNavBar(
+          currentIndex: _currentIndex,
+          onTap: _onNavItemTapped,
         ),
 
       ),
