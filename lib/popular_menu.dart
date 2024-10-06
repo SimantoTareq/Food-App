@@ -44,7 +44,7 @@ class _PopularMenuHomepageState extends State<PopularMenuHomepage> {
     return  SafeArea(
       child: Scaffold(
         appBar: AppBar(
-            backgroundColor: Colors.white,
+
           automaticallyImplyLeading: false,
           flexibleSpace: Padding(
             padding: const EdgeInsets.fromLTRB(35.0,20,8,8),
@@ -153,12 +153,9 @@ class _PopularMenuHomepageState extends State<PopularMenuHomepage> {
 
         ),
 
-        bottomNavigationBar: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 60),
-          child: CustomBottomNavBar(
-            currentIndex: _currentIndex,
-            onTap: _onNavItemTapped,
-          ),
+        bottomNavigationBar: CustomBottomNavBar(
+          currentIndex: _currentIndex,
+          onTap: _onNavItemTapped,
         ),
 
       ),
