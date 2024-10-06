@@ -22,19 +22,19 @@ class _PopularMenuHomepageState extends State<PopularMenuHomepage> {
     setState(() {
       _currentIndex = index;
     });
-    // Here you can handle navigation based on the index
+
     switch (index) {
       case 0:
-      // Navigate to home
+
         break;
       case 1:
-      // Navigate to search
+
         break;
       case 2:
-      // Navigate to cart
+
         break;
       case 3:
-      // Navigate to profile
+
         break;
     }
   }
@@ -44,7 +44,7 @@ class _PopularMenuHomepageState extends State<PopularMenuHomepage> {
     return  SafeArea(
       child: Scaffold(
         appBar: AppBar(
-
+            backgroundColor: Colors.white,
           automaticallyImplyLeading: false,
           flexibleSpace: Padding(
             padding: const EdgeInsets.fromLTRB(35.0,20,8,8),
@@ -53,103 +53,112 @@ class _PopularMenuHomepageState extends State<PopularMenuHomepage> {
 
         ),
 
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(35.0,10,45.0,8),
-                child: CustomSearch(),
-              ),
-              SizedBox(height: 40,),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(35.0,80,35.0,8),
-                child: Row(
-                  children: [
-                    ItemFoodCard(
-                       asset: 'images/cheese-burger.png',
-                        label: 'Cheese Burger',
-                      subTitle: 'Steak House',
-                      price: '\$5.99',
-                      addToCartLabel: 'Add to cart',
-                      onClickAction: () => {
-                      Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
+        body: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(35.0,10,45.0,8),
+              child: CustomSearch(),
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                
+                  children: [SizedBox(height: 40,),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(35.0,80,35.0,8),
+                      child: Row(
+                        children: [
+                          ItemFoodCard(
+                            asset: 'images/cheese-burger.png',
+                            label: 'Cheese Burger',
+                            subTitle: 'Steak House',
+                            price: '\$5.99',
+                            addToCartLabel: 'Add to cart',
+                            onClickAction: () => {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
+                              ),
+                            },
+                          ),
+                          ItemFoodCard(
+                            asset: 'images/pizza.png',
+                            label: 'Pizza',
+                            subTitle: 'Grill Bar',
+                            price: '\$12.45',
+                            addToCartLabel: 'Add to cart',
+                            onClickAction: () => {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
+                              ),
+                            },
+                          ),
+                
+                        ],
+                
                       ),
-                      },
                     ),
-                    ItemFoodCard(
-                      asset: 'images/pizza.png',
-                      label: 'Pizza',
-                      subTitle: 'Grill Bar',
-                      price: '\$12.45',
-                      addToCartLabel: 'Add to cart',
-                      onClickAction: () => {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
-                        ),
-                      },
-                    ),
-          
-                  ],
-          
+                
+                    SizedBox(height: 40,),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(35.0,80,35.0,8),
+                      child: Row(
+                        children: [
+                          ItemFoodCard(
+                            asset: 'images/chicken-burger.png',
+                            label: 'Chicken Burger',
+                            subTitle: 'Irish Pub',
+                            price: '\$5.99',
+                            addToCartLabel: 'Add to cart',
+                            onClickAction: () => {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
+                              ),
+                            },
+                
+                
+                          ),
+                          ItemFoodCard(
+                            asset: 'images/cesarsalad.png',
+                            label: 'Cesar Salad',
+                            subTitle: 'Irish Pub',
+                            price: '\$35.99',
+                            addToCartLabel: 'Add to cart',
+                            onClickAction: () => {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
+                              ),
+                            },
+                
+                          ),
+                
+                        ],
+                      ),
+                    ),],
                 ),
               ),
-          
-              SizedBox(height: 40,),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(35.0,80,35.0,8),
-                child: Row(
-                  children: [
-                    ItemFoodCard(
-                      asset: 'images/chicken-burger.png',
-                      label: 'Chicken Burger',
-                      subTitle: 'Irish Pub',
-                      price: '\$5.99',
-                      addToCartLabel: 'Add to cart',
-                      onClickAction: () => {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
-                        ),
-                      },
-          
-          
-                    ),
-                    ItemFoodCard(
-                      asset: 'images/cesarsalad.png',
-                      label: 'Cesar Salad',
-                      subTitle: 'Irish Pub',
-                      price: '\$35.99',
-                      addToCartLabel: 'Add to cart',
-                      onClickAction: () => {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) =>  Category()), // Navigate to Category page
-                        ),
-                      },
-          
-                    ),
-          
-                  ],
-                ),
-              ),
+            ),
 
 
-          
-          
-          
-            ],
-          
-          
-          ),
+
+
+
+
+
+          ],
+
 
         ),
 
-        bottomNavigationBar: CustomBottomNavBar(
-          currentIndex: _currentIndex,
-          onTap: _onNavItemTapped,
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 60),
+          child: CustomBottomNavBar(
+            currentIndex: _currentIndex,
+            onTap: _onNavItemTapped,
+          ),
         ),
 
       ),

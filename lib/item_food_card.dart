@@ -128,7 +128,7 @@ class _ItemFoodCardState extends State<ItemFoodCard> {
 Widget build(BuildContext context) {
     return Expanded(
       child: Card(
-        elevation: 10,
+        elevation: 8,
         child: InkWell(
           onTap: () {
             if (widget.onClickAction != null) {
@@ -202,7 +202,7 @@ Widget build(BuildContext context) {
               ),
               // Positioned image slightly above the parent widget
               Positioned(
-                top: -100, // Move the image upwards by 100 pixels
+                top: -80, // Move the image upwards by 100 pixels
                 left: 0,
                 right: 0,
                 child: Center(
