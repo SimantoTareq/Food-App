@@ -10,6 +10,8 @@ import 'package:food_app/sign_in_page.dart';
 //>>>>>>> 1deb57000d18d58677f4a697577c1c597cc63237
 import 'package:food_app/sign_up_page.dart';
 import 'package:food_app/splash_screen.dart';
+
+import 'category.dart';
 //Owner : Tareq
 //Collaborator: Siam
 void main() {

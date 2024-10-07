@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// This is a bottom bar
+
 class CustomBottomNavBar extends StatefulWidget {
   final int currentIndex;
   final ValueChanged<int> onTap;
