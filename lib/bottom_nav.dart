@@ -51,7 +51,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
             ),
             IconButton(
               icon: Icon(
-                Icons.chat_bubble_outline,
+                Icons.settings,
                 color: widget.currentIndex == 3 ? const Color(0xFF28303F) : Colors.grey,
               ),
                 onPressed: () => widget.onTap(3),
