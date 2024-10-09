@@ -38,7 +38,9 @@ dependencies:
   sizer: ^2.0.15
   flutter_svg: ^2.0.9
   google_fonts: ^6.2.1
-  flutter_slidable: ^3.1.1
+  flutter_slidable: ^2.0.0  # Use the latest version that supports null safety
+  swipeable_tile: ^2.0.1
+  vibration: ^2.0.0
 
 
 dev_dependencies:

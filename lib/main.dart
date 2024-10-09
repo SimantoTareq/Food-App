@@ -10,8 +10,10 @@ import 'package:food_app/sign_in_page.dart';
 //>>>>>>> 1deb57000d18d58677f4a697577c1c597cc63237
 import 'package:food_app/sign_up_page.dart';
 import 'package:food_app/splash_screen.dart';
+import 'package:food_app/test.dart';
 
 import 'category.dart';
+import 'check.dart';
 //Owner : Tareq
 //Collaborator: Siam
 void main() {
@@ -46,7 +48,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: OrderPage(),
+      home: SwipeableList(),
 //<<<<<<< HEAD
     //  home: PaymentMethod(),
 //=======
