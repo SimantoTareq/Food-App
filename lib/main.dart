@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
 //<<<<<<< HEAD
-     home: PaymentMethod(),
+     home: PopularMenuHomepage(),
 //=======
     //  home: NotificationPage(),
 //>>>>>>> 1deb57000d18d58677f4a697577c1c597cc63237

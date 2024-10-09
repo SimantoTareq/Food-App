@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
@@ -80,8 +81,9 @@ class _ItemFoodCardState extends State<ItemFoodCard> {
                           ),
                         ),
                       ),
+
                       Container(
-                        height: 50,
+                        height: MediaQuery.of(context).size.height *.06,
                         decoration: const BoxDecoration(
                           color: Color(0xFF0D5EF9),
                           borderRadius: BorderRadius.only(
@@ -117,6 +119,19 @@ class _ItemFoodCardState extends State<ItemFoodCard> {
                   right: 0,
                   child: Center(
                     child: Badge(
+
+                      alignment: Alignment.topCenter,
+                      backgroundColor: Color(0xFFF9F9F9),
+
+                      label: Transform.scale(
+                        scale: 0.8,
+                        child: IconButton(
+
+                          onPressed: () {  },
+                          icon: Icon(CupertinoIcons.heart_fill),
+                          color: Color(0xFF181E224D),
+                        ),
+                      ),
                       child: Image.asset(
                         widget.asset ?? 'Image not found',
 
